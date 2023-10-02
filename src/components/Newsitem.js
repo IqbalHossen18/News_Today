@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-export default class Newsitem extends Component {
-  render() {
-    let {title, description, imgurl,newsurl,author,date,source} =this.props;
+import React  from 'react'
+const Newsitem =(props)=>{
+    let {title, description, imgurl,newsurl,author,date,source,mode,textclr,} =props;
     const itemclr1 = '#EAFAF1'
     const itemclr2 = '#283747'
     return (
       <>
-      <div id="card" style={{backgroundColor:this.props.mode === 'light' ? itemclr1:itemclr2}} className={`card text-${this.props.textclr}`}>
+      <div id="card" style={{backgroundColor:mode === 'light' ? itemclr1:itemclr2}} className={`card text-${textclr}`}>
           <span style={{right:'0%',zIndex:'1'}} className="position-absolute top-0 translate-middle badge rounded-pill bg-danger">{source}</span>
                     <img style={{height:'250px'}} src={!imgurl?'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg':imgurl} className="card-img-top" alt="..."/>
                     {/* <div className="card-body">
@@ -22,11 +21,11 @@ export default class Newsitem extends Component {
                         <small className="text-muted text-light">Author: {!author ? "Unknown" : author}, Time: {new Date(date).toGMTString()}</small>
                       </p>
                       <div style={{ flex: '1' }}></div>
-                      <a style={this.props.textclr === 'black'?{backgroundColor:'#34495E',color:'white', fontWeight:'bold'}:{backgroundColor:'#CACFD2',fontWeight:'bold'}} href={newsurl} target="_blank" rel="noopener noreferrer" className={`btn`}>Read More</a>
+                      <a style={textclr === 'black'?{backgroundColor:'#34495E',color:'white', fontWeight:'bold'}:{backgroundColor:'#CACFD2',fontWeight:'bold'}} href={newsurl} target="_blank" rel="noopener noreferrer" className={`btn`}>Read More</a>
                     </div>
-
           </div>
       </>
     )
-  }
 }
+
+export default Newsitem 

@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom';
 
-export default class Navbar
- extends Component {
- 
-  
-  render() {
+const Navbar =(props)=> {
     const navclr = '#212F3D';
     const lightModeColor = '#95A5A6';
+    let {mode,handlemode,textclr,btntext} =props
     return (
       <>
-                <nav style={{ backgroundColor: this.props.mode === 'light' ? lightModeColor : navclr}} className={`navbar sticky-top navbar-expand-lg navbar-${this.props.mode}`}
+                <nav style={{ backgroundColor:mode === 'light' ? lightModeColor : navclr}} className={`navbar sticky-top navbar-expand-lg navbar-${mode}`}
 >
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">News_Today</Link>
@@ -43,11 +40,12 @@ export default class Navbar
                     </div>
                 </div>
                 <div style={{width:'200px',marginLeft:'10px'}} className="form-check form-switch">
-                  <input  onClick={this.props.handlemode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                  <label style={{fontSize:'15px'}} className={`form-check-label text-${this.props.textclr}`} htmlFor="flexSwitchCheckDefault">{this.props.btntext}</label>
+                  <input  onClick={handlemode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                  <label style={{fontSize:'15px'}} className={`form-check-label text-${textclr}`} htmlFor="flexSwitchCheckDefault">{btntext}</label>
                 </div>
                 </nav>
       </>
     )
-  }
 }
+
+export default Navbar

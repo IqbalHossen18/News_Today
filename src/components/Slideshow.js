@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React  from "react";
 
-export default class Slideshow extends Component {
-  render() {
+const Slideshow =()=> {
     return (
       <div>
         <div
@@ -157,5 +156,6 @@ export default class Slideshow extends Component {
         </div>
       </div>
     );
-  }
 }
+
+export default Slideshow
